@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main class="mb-4">
+    <div class="container px-4 px-lg-5" style="margin-top:5%;">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10">
+                <h3><i>You have been logged out successfully!</i></h3>
+                <div class="my-5" style="justify-content-center">
+                    {% comment %} <a href="{% url 'login'%}">Click here to login again.</a> {% endcomment %}
+                    <a href="{% url 'blog:home'%}">
+                        <button class="btn btn-primary text-uppercase" type="button">Back to Home</button>
+                    </a>
+                    <a href="{% url 'login'%}">
+                        <button class="btn btn-primary text-uppercase" type="button">Login again!</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </main> 
+
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Page Header-->
+<header class="masthead bloghead" style="background-image: url('assets/imgs/post-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            {% comment %} <div class="col-md-10 col-lg-8 col-xl-7"> {% endcomment %}
+                <div class="site-heading">
+                    <h2>Blog Home</h2>
+                </div>
+            {% comment %} </div> {% endcomment %}
+        </div>
+    </div>
+</header>
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-12 col-lg-12">
+            {% for post in posts %}
+            
+            <div class="post-preview">
+                <a href="{% url 'blog:post_detail' post.slug  %}">
+                    <h2 class="post-title">{{ post.title }}</h2>
+                    <h3 class="post-subtitle">
+                        {{post.content|slice:":200" }}
+                    </h3>
+                </a>
+                <p class="post-meta">
+                    Posted by
+                    <a href="#!">{{ post.author }}</a>
+                    in <a href="{% url 'blog:post_category' post.category.slug  %}">
+                        <b>{{post.category}} </b>
+                    </a>
+                    at {{ post.created_on| date }}
+                </p>
+            </div>
+            <!-- Divider-->
+            <hr class="my-4" />
+            {% endfor %}
+
+            <!-- Pager-->
+            {% comment %} <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div> {% endcomment %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

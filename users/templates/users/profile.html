@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% comment %} {% load bootstrap4 %} {% endcomment %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% comment %} {{ form }} {% endcomment %}
+    <header class="masthead">
+        <div class="container position-relative px-4 px-lg-5"
+             style="background-color: white;
+                    border-radius: 3%">
+            <div class="row gx-4 gx-lg-5 justify-content-center"
+                 style="padding-top: 3%;
+                        padding-bottom:3%">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="profile">
+                        <img src="{{ user.profile.image.url }}" alt="" width="100" height="100">
+                        <h3>{{ user.username|capfirst }}'s Profile</h3>
+                    </div>
+                    <div class="site-heading">
+                        {% if messages %}
+                            {% for message in messages %}<script>alert({{message }});</script>{% endfor %}
+                        {% endif %}
+                        <form method="post"
+                              enctype="multipart/form-data"
+                              action="{% url 'user:profile' %}">
+                            {% csrf_token %}
+                            {% for field in u_form %}
+                                <div class="form-floating">
+                                    {{ field }}
+                                    <br/>
+                                    <label>{{ field.label }}</label>
+                                    <br/>
+                                </div>
+                            {% endfor %}
+                            <div class="form-floating">
+                                <input type="file"
+                                       name="image"
+                                       accept="image/*"
+                                       class="clearablefileinput form-control-file"
+                                       id="id_image"
+                                       style="font-size: large;
+                                              margin-top:4%">
+                                <label for="id_image">Change Image:</label>
+                            </div>
+                            <br/>
+                            <!-- User form -->
+                            {% comment %} {{ p_form|crispy }} {% endcomment %}
+                            {% comment %} {{ form }} {% endcomment %}
+                            {% comment %} <div class="form-floating">
+                                <input class="form-control" id="name" type="text" name="username" value={{ user.username }} data-sb-validations="required"/>
+                                <label for="name">Username</label>
+                            </div>
+                            <div class="form-floating">
+                                <input class="form-control" id="name" type="text" name="first_name" value={{ user.first_name }} data-sb-validations="required"/>
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class="form-floating">
+                                <input class="form-control" id="name" type="text" name="last_name" value={{ user.last_name }} data-sb-validations="required"/>
+                                <label for="name">Last Name</label>
+                            </div>
+                            <div class="form-floating">
+                                <input class="form-control" id="name" type="email" name="email" value={{ user.email }} data-sb-validations="required"/>
+                                <label for="name">Email</label>
+                            </div>
+                            <div class="form-floating">
+                                {% if user.profile.image %}
+                                    <img src="{{ user.profile.image.url }}" alt="" height="100px" width="100px" style="border-radius:50%; margin-top:2%"/>
+                                    <label for="name">Image</label>
+                                {% endif %}
+                            </div>
+                            <div class="form-floating">
+                                <input type="file" name="profile_image" accept="image/*" id="id_profile_image">
+                                <label for="id_profile_image">New Image</label>
+                            </div> {% endcomment %}
+                            <div class="form-group">
+                                <button class="btn btn-primary text-uppercase" type="submit">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
