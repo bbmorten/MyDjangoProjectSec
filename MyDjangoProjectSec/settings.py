@@ -6,7 +6,7 @@ TEMPLATES_DIRS = os.path.join(BASE_DIR,'templates')
 
 SECRET_KEY = 'django-insecure-a&*o#8@w&8f7en!k7pau5m2ohgq%r@=bg0xq^1-wn!bsvbxl)3'
 DEBUG = True
-ALLOWED_HOSTS = ['170.64.161.26']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -37,7 +37,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'FutureWatch.urls'
+ROOT_URLCONF = 'MyDjangoProjectSec.urls'
 
 TEMPLATES = [
     {
@@ -55,7 +55,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'FutureWatch.wsgi.application'
+WSGI_APPLICATION = 'MyDjangoProjectSec.wsgi.application'
 
 
 DATABASES = {

@@ -1,5 +1,5 @@
 """
-WSGI config for FutureWatch project.
+WSGI config for MyDjangoProjectSec project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FutureWatch.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'MyDjangoProjectSec.settings')
 
 application = get_wsgi_application()
