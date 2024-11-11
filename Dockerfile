@@ -26,4 +26,4 @@ RUN python manage.py collectstatic --noinput
 EXPOSE 8000
 
 # Run the application with Gunicorn
-CMD ["gunicorn", "mydjangoproject.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "MyDjangoProjectSec.wsgi:application", "--bind", "0.0.0.0:8000"]

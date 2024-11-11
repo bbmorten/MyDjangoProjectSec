@@ -1,4 +1,3 @@
-version: '3.4'
 
 services:
   mydjangoprojectsec:
@@ -6,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 manage.py runserver 0.0.0.0:8009 --nothreading --noreload"]
+    command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 manage.py runserver 0.0.0.0:8000 --nothreading --noreload"]
     ports:
-      - 8009:8009
+      - 8009:8000
       - 5678:5678
