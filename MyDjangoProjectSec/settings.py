@@ -6,7 +6,7 @@ TEMPLATES_DIRS = os.path.join(BASE_DIR,'templates')
 
 SECRET_KEY = 'django-insecure-a&*o#8@w&8f7en!k7pau5m2ohgq%r@=bg0xq^1-wn!bsvbxl)3'
 DEBUG = True
-ALLOWED_HOSTS = [mydjangoprojectsec.dvmo.uk]
+ALLOWED_HOSTS = [MyDjangoProjectSec.dvmo.uk]
 
 
 # Application definition
